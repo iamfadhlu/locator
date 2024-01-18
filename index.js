@@ -1,5 +1,5 @@
 // Replace 'YOUR_API_KEY' with your actual API key
-const API_KEY = 'AIzaSyCOmUvYh3QOFTFZSihs75tueN_e7ebcwAg';
+const API_KEY = 'your_api';
         
 function geocodeAddress() {
     const address = document.getElementById('address').value;
