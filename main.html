@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <style>
+    html{
+        background-color: #000000;
+    }
+    form {
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 30px;
+            border: 2px solid #ccc;
+            border-radius: 40px;
+            background-color: #ccc;
+        }
+
+        fieldset {
+            margin: 5%;
+            border-radius: 30px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border-radius: 7px;
+        }
+        
+        button {
+            align-self: center;
+            background-color: #000000;
+            color: #fff;
+            padding: 20px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        h1{
+            max-width: 300px;
+            margin: 10px auto;
+            padding: 20px;
+            border: 0px solid #000000;
+            border-radius: 20px;
+            background-color: #504b4b;
+            font-family: Impact, Charcoal, sans-serif;
+            font-weight: normal;
+            font-style: normal;
+            text-decoration: none;
+            color: #03ffdd;
+            font-size: 30px;
+        }
+        div{
+            width: 80%;
+            margin: 10px auto;
+            height: 700px;
+
+        }
+        .center-button {
+        display: block;
+        margin: 0 auto;         
+        text-align: center;
+}
+    </style>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmUvYh3QOFTFZSihs75tueN_e7ebcwAg&callback=geocodeAddress"></script>                                                       
+</head>
+<body>
+    
+    <h1 align="center">LOCATOR</h1>
+    <form id="myForm" onsubmit="Submit(event)">
+            <input id="address" type="text" value="" placeholder="Enter the address" name="add" required autocomplete="true">
+            <br><br>
+            <button type="submit" class="center-button">Click me</button>
+    </form>
+    <h1 align="center">Your Location</h1>
+    <div></div>
+    <script src="index.js"></script>
+</body>
+</html>           
