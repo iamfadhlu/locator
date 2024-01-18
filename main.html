@@ -69,19 +69,20 @@
         margin: 0 auto;         
         text-align: center;
 }
-    </style>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmUvYh3QOFTFZSihs75tueN_e7ebcwAg&callback=geocodeAddress"></script>                                                       
+    </style>                                          
 </head>
 <body>
     
     <h1 align="center">LOCATOR</h1>
-    <form id="myForm" onsubmit="Submit(event)">
-            <input id="address" type="text" value="" placeholder="Enter the address" name="add" required autocomplete="true">
-            <br><br>
-            <button type="submit" class="center-button">Click me</button>
+    <form id="addressForm" onsubmit="Submit(event)">
+        <label align="center" for="address">Enter Address: </label>
+        <input type="text" id="address" placeholder="Enter address..." required>
+        <button type="button" onclick="geocodeAddress()">Get Location</button>
     </form>
     <h1 align="center">Your Location</h1>
-    <div></div>
+    <div class="center-button" id="map"></div>
     <script src="index.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmUvYh3QOFTFZSihs75tueN_e7ebcwAg&libraries=places&callback=initMap" async defer></script>
+
 </body>
 </html>           

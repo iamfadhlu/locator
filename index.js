@@ -1,43 +1,32 @@
-function geocodeAddress(address) {
-    var geocoder = new google.maps.Geocoder();
+// Replace 'YOUR_API_KEY' with your actual API key
+const API_KEY = 'AIzaSyCOmUvYh3QOFTFZSihs75tueN_e7ebcwAg';
+        
+function geocodeAddress() {
+    const address = document.getElementById('address').value;
+    const geocoder = new google.maps.Geocoder();
 
-    geocoder.geocode({ 'address': address }, function (results, status) {
+    geocoder.geocode({ 'address': address }, (results, status) => {
         if (status === 'OK') {
-            var location = results[0].geometry.location;
-            var latitude = location.lat();
-            var longitude = location.lng();
-            console.log('Latitude: ' + latitude + ', Longitude: ' + longitude);
-
-            // Create a LatLng object for the map center
-            var mapCenter = new google.maps.LatLng(latitude, longitude);
-
-            // Initialize the map
-            const map = new google.maps.Map(
-                document.querySelector("div"), { // Assuming you have an element with id="map"
-                    zoom: 15, // Adjust the zoom level as needed
-                    center: mapCenter
-                }
-            );
-            var bounds = new google.maps.LatLngBounds();
-            bounds.extend(mapCenter);
-
-            // Extend the bounds for additional points if needed
-            // bounds.extend(anotherLatLng);
-
-            // Fit the map to the bounds
-            map.fitBounds(bounds);
+            const location = results[0].geometry.location;
+            const latitude = location.lat();
+            const longitude = location.lng();
+            initMap(latitude, longitude);
         } else {
-            console.log('Geocode was not successful for the following reason: ' + status);
+            alert('Geocode was not successful for the following reason: ' + status);
         }
     });
 }
 
-function Submit(event) {
-    event.preventDefault();
-    var address = document.getElementById("address").value;
-    console.log(address);
-    geocodeAddress(address);
+function initMap(latitude, longitude) {
+    const mapDiv = document.getElementById('map');
+    const map = new google.maps.Map(mapDiv, {
+        center: { lat: latitude, lng: longitude },
+        zoom: 15
+    });
+
+    const marker = new google.maps.Marker({
+        position: { lat: latitude, lng: longitude },
+        map: map,
+        title: 'Location'
+    });
 }
-
-document.getElementById("myForm").addEventListener("submit", Submit);
-
